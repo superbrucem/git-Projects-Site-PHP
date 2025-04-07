@@ -1,0 +1,14 @@
+{
+  "name": "git-projects-site-php",
+  "version": "1.0.0",
+  "scripts": {
+    "css-build": "sass src/scss/main.scss:public/css/main.css",
+    "css-watch": "sass --watch src/scss/main.scss:public/css/main.css",
+    "start": "npm run css-watch"
+  },
+  "dependencies": {
+    "bulma": "^1.0.3",
+    "sass": "^1.86.2"
+  }
+}
+
