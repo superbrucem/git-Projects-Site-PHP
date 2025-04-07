@@ -2,7 +2,7 @@
   "name": "git-projects-site-php",
   "version": "1.0.0",
   "scripts": {
-    "css-build": "sass src/scss/main.scss:public/css/main.css",
+    "css-build": "sass src/scss/main.scss:public/css/main.css --style=compressed",
     "css-watch": "sass --watch src/scss/main.scss:public/css/main.css",
     "start": "npm run css-watch"
   },
@@ -11,4 +11,5 @@
     "sass": "^1.86.2"
   }
 }
+
 

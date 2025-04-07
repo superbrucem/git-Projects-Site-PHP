@@ -2,7 +2,8 @@
 
 namespace PHPAdvanced\Controllers;
 
-class HomeController {
+class CustomerController
+{
     private $conn;
 
     public function __construct()
@@ -21,61 +22,8 @@ class HomeController {
         }
     }
 
-    public function index() {
-        require "views/home.php";
-    }
-
-    public function datatables() {
-        $customers = $this->getCustomers();
-        require "views/datatables.php";
-    }
-
-    public function tabulator() {
-        $customers = $this->getCustomers();
-        require "views/tabulator.php";
-    }
-
-    public function webix() {
-        $customers = $this->getCustomers();
-        require "views/webix.php";
-    }
-
-    public function frappe() {
-        $customers = $this->getCustomers();
-        require "views/frappe.php";
-    }
-
-    public function zinggrid() {
-        $customers = $this->getCustomers();
-        require "views/zinggrid.php";
-    }
-
-    public function angular() {
-        $customers = $this->getCustomers();
-        require "views/angular.php";
-    }
-
-    public function agGrid() {
-        $customers = $this->getCustomers();
-        require "views/ag-grid.php";
-    }
-
-    public function jqGrid() {
-        $customers = $this->getCustomers();
-        require "views/jqgrid.php";
-    }
-
-    public function handsontable() {
-        $customers = $this->getCustomers();
-        require "views/handsontable.php";
-    }
-
-    public function simpleDatatables() {
-        $customers = $this->getCustomers();
-        require "views/simple-datatables.php";
-    }
-
-    private function getCustomers() {
+    public function listCustomers()
+    {
         $sql = "SELECT CustomerID, FirstName, LastName, Email, PhoneNumber, 
                        RegistrationDate, LastLogin 
                 FROM Customers";
@@ -98,7 +46,7 @@ class HomeController {
             $customers[] = $row;
         }
 
-        return $customers;
+        require 'views/customers_list.php';
     }
 
     public function __destruct()
@@ -108,7 +56,3 @@ class HomeController {
         }
     }
 }
-
-
-
-

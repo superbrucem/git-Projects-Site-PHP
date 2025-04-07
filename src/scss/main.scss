@@ -20,7 +20,8 @@ $footer-background: #1a1f2e;
 
 // Body and main content structure
 html, body {
-  min-height: 100vh;
+  height: 100vh;
+  margin: 0;
   background: linear-gradient(135deg, #1a1f2e 0%, #2c3449 100%);
   color: #e1e5ee;
 }
@@ -28,32 +29,27 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh; // Ensure body takes full viewport height
-}
-
-.navbar {
-  background-color: rgba(26, 31, 46, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
-  .navbar-brand {
-    .navbar-item {
-      color: #ffffff;
-      font-weight: 600;
-      font-size: 1.2rem;
-      
-      &:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-    }
-  }
 }
 
 .main-content {
-  flex: 1 1 auto; // Changed to 1 1 auto to ensure it fills available space
-  display: flex; // Add display flex
-  flex-direction: column; // Add flex direction
-  padding: 2rem 0;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+// Hero modifications
+.hero.is-fullheight-with-navbar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0; // Remove the fixed height calculation
+}
+
+.hero-body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section {
@@ -114,6 +110,8 @@ body {
 .title {
   color: #ffffff;
   
+  // Remove or comment out this ::after pseudo-element
+  /*
   &:after {
     content: '';
     display: block;
@@ -122,6 +120,7 @@ body {
     background: $primary;
     margin-top: 0.5rem;
   }
+  */
 }
 
 .subtitle {
@@ -130,30 +129,12 @@ body {
 
 // Footer styling
 .footer {
-  flex-shrink: 0; // Prevent footer from shrinking
+  flex-shrink: 0;
   background-color: rgba(26, 31, 46, 0.95);
   backdrop-filter: blur(10px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: #b4bcd0;
-  margin-top: auto; // Push footer to bottom if content is short
-
-  a {
-    color: #ffffff;
-    transition: all 0.3s ease;
-    
-    &:hover {
-      transform: translateY(-2px);
-      color: $primary !important;
-    }
-  }
-
-  .has-text-grey {
-    color: #b4bcd0 !important;
-  }
-
-  hr {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
+  padding: 2rem 1.5rem;
 }
 
 // Container width
@@ -187,6 +168,30 @@ body {
   gap: 1rem;
 }
 
+.hero-body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+// Update your existing fadeIn animation if needed
+@keyframes fadeIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
 
 
 
